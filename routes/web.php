@@ -30,9 +30,9 @@ Route::post('register','Auth\RegisterController@register');
 
 //密码重置相关路由
 Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email','Auth\ForgotPasswordController@sendLinkEmail')->name('password.email');
-Route::get('password/reset/{token}','Auth\ForgotPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset','Auth\ForgotPasswordController@reset')->name('password.update');
+Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}','Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset','Auth\ResetPasswordController@reset')->name('password.update');
 
 //Email 认证相关路由
 Route::get('email/vrify','Auth\VerificationController@show')->name('verification.notice');
