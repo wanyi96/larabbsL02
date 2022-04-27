@@ -9,9 +9,14 @@ use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
     //
     public function show(User $user)
     {
+        $this->authorize('update', $user); //权限验证，“当前”网页浏览用户是否和将要展示的用户是同一用户
         return view('users.show',compact('user'));
     }
 
@@ -22,6 +27,7 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
+        $this->authorize('update', $user);
         $data = $request->all();
         if($request->avatar){
             $result = $uploader->save($request->avatar,'avatars',$user->id, 416);
