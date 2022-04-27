@@ -39,4 +39,8 @@ Route::get('email/vrify','Auth\VerificationController@show')->name('verification
 Route::get('email/vrify/{id}/{hash}','Auth\VerificationController@verify')->name('verification.verify');
 Route::post('email/resend','Auth\VerificationController@resend')->name('verification.resend');
 
-
+//资源路由
+// Route::resource('users','UsersController',['only'=>['show','update','edit']]);
+Route::get('/users/{user}','UsersController@show')->name('users.show');
+Route::get('/users/{user}/edit','UsersController@edit')->name('users.edit');
+Route::put('/users/{user}','UsersController@update')->name('users.update');
