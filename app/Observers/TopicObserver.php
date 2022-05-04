@@ -18,4 +18,11 @@ class TopicObserver
     {
         //
     }
+
+    public function saving(Topic $topic)
+    {
+        //保存topic数据时，生成摘要字段再保存
+        $topic->excerpt = make_excerpt($topic->body);
+    }
 }
+
