@@ -1,6 +1,9 @@
 window._ = require('lodash');
 
 try {
+  //加载jquery
+  windows.$ = windows.jQuery = require('jquery');
+
     require('bootstrap');
 } catch (e) {}
 
