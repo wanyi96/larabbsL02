@@ -49,4 +49,10 @@ class Topic extends Model
         //根据创建时间排序
         return $query->orderBy('created_at', 'desc');
     }
+
+    public function link($params = [])
+    {
+        //重定向带有slug的标题
+        return route('topics.show',array_merge([$this->id, $this->slug], $params));
+    }
 }
