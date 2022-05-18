@@ -22,7 +22,6 @@ class SlugTranslateHandler
 
         // 如果没有配置百度翻译，自动使用兼容的拼音方案
         if (empty($appid) || empty($key)) {
-
             return $this->pinyin($text);
         }
 
@@ -63,7 +62,6 @@ class SlugTranslateHandler
         ]
 
         **/
-
         // 尝试获取获取翻译结果
         if (isset($result['trans_result'][0]['dst'])) {
             return Str::slug($result['trans_result'][0]['dst']);
