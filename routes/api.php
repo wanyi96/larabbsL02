@@ -34,6 +34,11 @@ Route::prefix('v1')
                 // 图片验证码
                 Route::post('captchas', 'CaptchasController@store')
                     ->name('captchas.store');
+
+                // 第三方登录
+                Route::post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+                    ->where('social_type', 'wechat')
+                    ->name('socials.authorizations.store');
             });
 
     Route::middleware('throttle:' . config('api.rate_limits.access'))
