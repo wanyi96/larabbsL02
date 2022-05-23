@@ -24,6 +24,9 @@ return [
             'access_key_secret' => env('SMS_ALIYUN_ACCESS_KEY_SECRET'),
             // 'sign_name' => 'Larabbs',  //暂时只能用测试版本
             'sign_name' => '阿里云短信测试',
+            'templates' => [
+                'register' => env('SMS_ALIYUN_TEMPLATE_REGISTER'),
+            ]
         ],
     ],
 ];
