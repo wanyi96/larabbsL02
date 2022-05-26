@@ -90,5 +90,12 @@ Route::prefix('v1')
                     // 删除回复
                     Route::delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')
                         ->name('topics.replies.destroy');
+                    // 话题回复列表
+                    Route::get('topics/{topic}/replies', 'RepliesController@index')
+                        ->name('topics.replies.index');
+                    // 某个用户的回复列表
+                    Route::get('users/{user}/replies', 'RepliesController@userIndex')
+                        ->name('users.replies.index');
+
             });
 });
