@@ -15,4 +15,6 @@ class LinksController extends Controller
         LinkResource::wrap('data');
         return LinkResource::collection($links);
     }
+
 }
+
