@@ -71,7 +71,9 @@ class AuthorizationsController extends Controller
         $credentials['password'] = $request->password;
 
         if (!$token = \Auth::guard('api')->attempt($credentials)) {
-            throw new AuthenticationException('用户名或密码错误');
+            // throw new AuthenticationException('用户名或密码错误');
+            //错误信息根据请求头的语言返回不同的语言（中英文切换）
+            throw new AuthenticationException(trans('auth.failed'));
         }
 
         return response()->json([

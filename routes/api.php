@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')
 ->namespace('Api')
+->middleware('change-locale')
 ->name('api.v1.')
 // ->middleware('throttle:1,1') //1分钟1次
 ->group(function () {
