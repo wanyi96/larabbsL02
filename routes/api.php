@@ -66,6 +66,9 @@ Route::prefix('v1')
                 // 某个用户发布的话题
                 Route::get('users/{user}/topics', 'TopicsController@userIndex')
                     ->name('users.topics.index');
+                // 资源推荐
+                Route::get('links', 'LinksController@index')
+                ->name('links.index');
 
                 // 登录后可以访问的接口
                 Route::middleware('auth:api')->group(function() {
@@ -108,5 +111,6 @@ Route::prefix('v1')
                     // 当前登录用户权限
                     Route::get('user/permissions', 'PermissionsController@index')
                         ->name('user.permissions.index');
+
             });
 });
